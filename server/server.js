@@ -12,7 +12,7 @@ const con = mysql.createConnection({
 });
 
 function handleDisconnect() {
-     const connection = mysql.createConnection(con);
+    const connection = mysql.createConnection(con);
     connection.connect(function(err) {                // The server is either down
         if(err) {                                     // or restarting (takes a while sometimes).
           console.log('error when connecting to db:', err);
@@ -98,7 +98,7 @@ io.on('connection', socket => { //On user connection
         playerStatus_console[socket.id] = (data.playerPosition);
         playerStatus[socket.id] = (data.playerPosition + "<div id='headerpicture'></div>");
         console.log(playerStatus_console);
-        var myJSON = JSON.stringify(playerStatus_console);
+        var myJSON = JSON.stringify(playerStatus);
         
         myJSON = myJSON.replace(/[{","​​​​​}​​​​​]/g, '');
         // console.log(myJSON);
