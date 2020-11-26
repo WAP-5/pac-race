@@ -5,10 +5,10 @@ const PORT = process.env.PORT || 3000;
 const socketio = require('socket.io'); // Socket io server
 const mysql = require('mysql');
 const con = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'MYGAME!1database',
-  database: 'pacman'
+  host: 'eu-cdbr-west-03.cleardb.net',
+  user: 'b8dfc62739e617',
+  password: 'e4c42126',
+  database: 'heroku_489264aee16944a'
 });
 
 con.connect((err) => {
