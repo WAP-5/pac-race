@@ -3,6 +3,7 @@ const path = require('path');
 const http = require('http');
 const PORT = process.env.PORT || 3000;  
 const socketio = require('socket.io'); // Socket io server
+
 const mysql = require('mysql');
 const con = mysql.createConnection({
   host: 'eu-cdbr-west-03.cleardb.net',
@@ -13,8 +14,8 @@ const con = mysql.createConnection({
 
 function handleDisconnect() {
     const connection = mysql.createConnection(con);
-    connection.connect(function(err) {                // The server is either down
-        if(err) {                                     // or restarting (takes a while sometimes).
+    connection.connect(function(err) {                  // The server is either down
+        if(err) {                                       // or restarting (takes a while sometimes).
           console.log('error when connecting to db:', err);
           setTimeout(handleDisconnect, 2000);           // We introduce a delay before attempting to reconnect,
         }                                               // to avoid a hot loop, and to allow our node script to
@@ -65,14 +66,6 @@ var playerStatus_console = {}
 
 io.on('connection', socket => { //On user connection
 
-    /*  var playerNumber = -1;
-    for (var i in numberOfConnections) { //Iterating through the array
-        if (numberOfConnections[i] == null) {
-            playerNumber = i; //Setting player number to the number of the element of null
-            break; //breaking the statement so it isn't repeated over and over again
-        }
-    }
-*/
     socket.on('userName', name => {
         socket.id = name;
         con.query(`INSERT INTO scoreboard (player) VALUES ('${name}')`, function(err,result) {
@@ -97,11 +90,10 @@ io.on('connection', socket => { //On user connection
         playerStatus_console[socket.id] = (data.playerPosition);
         playerStatus[socket.id] = (data.playerPosition + "<div id='nextline'> <br>  </div>");
         console.log(playerStatus_console);
-        var myJSON = JSON.stringify(playerStatus);
+        var playerStatusString = JSON.stringify(playerStatus);
         
-        myJSON = myJSON.replace(/[{","​​​​​}​​​​​]/g, '');
-        // console.log(myJSON);
-        socket.emit('scores', myJSON);
+        playerStatusString = playerStatusString.replace(/[{","​​​​​}​​​​​]/g, '');
+        socket.emit('scores', playerStatusString);
 
     })
 
@@ -110,31 +102,12 @@ io.on('connection', socket => { //On user connection
         console.log(playerStatus);
     })
 
-
-    // TODO: setInterval function 
-
-
-    //socket.emit('totalscore', playerStatus.score); 
     socket.on('gameover', data => {
         socket.broadcast.emit('gameover2', data);
     })
 
-    setInterval(() => { // Refreshing wvery 2 milliseconds 
+    setInterval(() => { // Refreshing every 2 m.s.
         socket.emit('updateScores', playerStatus);
     }, 300)
-
-    /*
-    socket.emit('player-number', playerNumber); //Telling the user what player they are
-    console.log(`Player ${playerNumber} has joined`);
-
-    connections[playerNumber] = false;
-
-    */
-
-    //Ignoring additional players 
-
-    // if (playerNumber == 6) {
-    //     return;
-    // }
 
 });
