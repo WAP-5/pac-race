@@ -31,7 +31,7 @@ function handleDisconnect() {
         }
         });
 }
-handleDisconnect();
+
 
 con.connect((err) => {
   if(err) throw err;
@@ -86,6 +86,7 @@ io.on('connection', socket => { //On user connection
     socket.on('disconnect', data => {
         console.log(`aww ${socket.id} just left`);
         playerStatus = {}
+        handleDisconnect();
     })
 
     socket.on('player-joined', () => {
