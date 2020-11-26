@@ -86,7 +86,6 @@ io.on('connection', socket => { //On user connection
         handleDisconnect();  
         console.log(`aww ${socket.id} just left`);
         playerStatus = {};
-             
     })
 
     socket.on('player-joined', () => {
