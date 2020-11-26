@@ -77,7 +77,6 @@ io.on('connection', socket => { //On user connection
         handleDisconnect();  
         console.log(`aww ${socket.id} just left`);
         playerStatus = {};
-             
     })
 
     socket.on('player-joined', () => {
@@ -87,7 +86,7 @@ io.on('connection', socket => { //On user connection
 
     socket.on('playerPosition', data => {
         playerStatus_console[socket.id] = (data.playerPosition);
-        playerStatus[socket.id] = (data.playerPosition + "<div id='headerpicture'></div>");
+        playerStatus[socket.id] = (data.playerPosition + "<div id='nextline'> <br>  </div>");
         console.log(playerStatus_console);
         var myJSON = JSON.stringify(playerStatus);
         

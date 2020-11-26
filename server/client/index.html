@@ -9,6 +9,7 @@
     <script>
         src = "/socket.io/socket.io.js"
     </script>
+    
 </head>
 
 <body>
@@ -20,14 +21,35 @@
     </div>
 
     <div style="color: white;
-     margin-left: -150px; 
-     margin-top: -380px;" id='scoreboard'>
+     margin-left: -300px;
+     margin-top: -450px;
+     font-size: 22px;
+     position: fixed;" id='controls'>
+     <pre>
+          Movement Keys
 
+                ↑ 
+             ←     → 
+                ↓
+     </pre>
     </div>
 
-    <div style="margin-left: 150px; margin-top: 370px;" id='tryAgain'>
+    <div style="margin-left: 150px; margin-top: 10px;" id='tryAgain'>
         <button onClick="window.location.href=window.location.href">Try again?</button>
     </div>
+
+    <div style="color: white;
+     margin-left: 430px; 
+     margin-top: -450px;
+     font-size: 22px;" id='scoreboard'>
+
+    </div>
+
+    
+
+    
+    <div id='nextline'> <br>  </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="index.js"></script>
 </body>
