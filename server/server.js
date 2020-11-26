@@ -11,7 +11,7 @@ const con = mysql.createConnection({
   database: 'heroku_489264aee16944a'
 });
 
-const connection;
+const connection = {};
 
 function handleDisconnect() {
     connection = mysql.createConnection(con);
