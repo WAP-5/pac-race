@@ -4,7 +4,7 @@
     "description": "pacman multiplayer",
     "main": "./server/server.js",
     "scripts": {
-        "start": "node server",
+        "start": "node server/server.js",
         "dev": "nodemon server"
     },
     "dependencies": {
