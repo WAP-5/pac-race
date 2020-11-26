@@ -41,6 +41,7 @@ con.query('SELECT * FROM scoreboard', (err,rows) => {
 
     console.log('Data received from Db:');
     console.log(rows);
+
 });
 
 
@@ -82,9 +83,10 @@ io.on('connection', socket => { //On user connection
     })
 
     socket.on('disconnect', data => {
-        handleDisconnect();
+        handleDisconnect();  
         console.log(`aww ${socket.id} just left`);
         playerStatus = {};
+             
     })
 
     socket.on('player-joined', () => {
