@@ -64,15 +64,6 @@ var playerStatus_console = {}
 
 
 io.on('connection', socket => { //On user connection
-
-    /*  var playerNumber = -1;
-    for (var i in numberOfConnections) { //Iterating through the array
-        if (numberOfConnections[i] == null) {
-            playerNumber = i; //Setting player number to the number of the element of null
-            break; //breaking the statement so it isn't repeated over and over again
-        }
-    }
-*/
     socket.on('userName', name => {
         socket.id = name;
         con.query(`INSERT INTO scoreboard (player) VALUES ('${name}')`, function(err,result) {
