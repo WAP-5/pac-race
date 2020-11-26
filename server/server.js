@@ -11,10 +11,8 @@ const con = mysql.createConnection({
   database: 'heroku_489264aee16944a'
 });
 
-const connection = {};
-
 function handleDisconnect() {
-    connection = mysql.createConnection(con);
+     const connection = mysql.createConnection(con);
     connection.connect(function(err) {                // The server is either down
         if(err) {                                     // or restarting (takes a while sometimes).
           console.log('error when connecting to db:', err);
@@ -85,9 +83,10 @@ io.on('connection', socket => { //On user connection
     })
 
     socket.on('disconnect', data => {
+        handleDisconnect();  
         console.log(`aww ${socket.id} just left`);
         playerStatus = {};
-        handleDisconnect();        
+             
     })
 
     socket.on('player-joined', () => {
