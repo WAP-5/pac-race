@@ -32,8 +32,8 @@ const io = socketio(server);
 app.use(express.static(path.join(__dirname, "client"))); //Serving static folder to the client
 
 
-server.listen(PORT, () => { // Listening on port 
-    console.log(`Server is running on port ${PORT}.`);
+server.listen(process.env.PORT || 3000, function(){ // Listening on port 
+    console.log(`Server is running on port ${this.address().port}.`);
 });
 var playerNames = {};
 const connections = []; // 5 players in each game 
