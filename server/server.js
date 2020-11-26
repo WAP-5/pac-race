@@ -11,6 +11,28 @@ const con = mysql.createConnection({
   database: 'heroku_489264aee16944a'
 });
 
+const connection;
+
+function handleDisconnect() {
+    connection = mysql.createConnection(con);
+    connection.connect(function(err) {                // The server is either down
+        if(err) {                                     // or restarting (takes a while sometimes).
+          console.log('error when connecting to db:', err);
+          setTimeout(handleDisconnect, 2000);           // We introduce a delay before attempting to reconnect,
+        }                                               // to avoid a hot loop, and to allow our node script to
+      });                                               // process asynchronous requests in the meantime.
+                                                        // If you're also serving http, display a 503 error.
+    connection.on('error', function(err) {
+        console.log('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') {   // Connection to the MySQL server is usually
+            handleDisconnect();                         // lost due to either server restart, or a
+        } else {                                        // connnection idle timeout (the wait_timeout
+            throw err;                                  // server variable configures this)
+        }
+        });
+    }
+
+
 con.connect((err) => {
   if(err) throw err;
   console.log('Connection established');
@@ -21,6 +43,7 @@ con.query('SELECT * FROM scoreboard', (err,rows) => {
 
     console.log('Data received from Db:');
     console.log(rows);
+
 });
 
 
@@ -63,7 +86,8 @@ io.on('connection', socket => { //On user connection
 
     socket.on('disconnect', data => {
         console.log(`aww ${socket.id} just left`);
-        playerStatus = {}
+        playerStatus = {};
+        handleDisconnect();        
     })
 
     socket.on('player-joined', () => {
