@@ -155,7 +155,7 @@ var alerts =
         }
     }, 100);
 
-var alerts = false;
+var arerts = false;
 
 document.onkeydown = function(e) { // This fcution basically runs whenever you hit any key 
 
