@@ -64,7 +64,7 @@ var playerStatus_console = {}
 
 
 
-io.on('connection', socket => { //On user connection
+io.on('connection', socket => { // On user connection
     socket.on('userName', name => {
         socket.id = name;
         con.query(`INSERT INTO scoreboard (player) VALUES ('${name}')`, function(err,result) {
