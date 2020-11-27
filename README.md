@@ -20,5 +20,5 @@ __Trailer__: link https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
 
 __THE LINK TO THE GAME IN ABOUT SECTION OF THIS REPO__
 
-BUGS: game shows Application Error; please contact our member Tiya Francis via Whatsapp to play the game!
+BUGS: game shows Application Error; please contact our member Tiya Francis to play the game!
 
