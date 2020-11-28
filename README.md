@@ -22,7 +22,7 @@ __Local server verion__ :
 __Link for the game:__ https://pac-race.herokuapp.com
 
 
-__Trailer__: link https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
+__Trailer__: https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
 
 __THE LINK TO THE GAME IN ABOUT SECTION OF THIS REPO__
 
