@@ -20,5 +20,11 @@ __Trailer__: link https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
 
 __THE LINK TO THE GAME IN ABOUT SECTION OF THIS REPO__
 
-BUGS: game shows Application Error; please contact us to play the game!
+BUGS: game shows Application Error; please contact us to play the game! 
 
+PLaying the game locally: 
+ 1) Open the terminal and navigate to the server folder: cd server 
+ 2) Once in the server folder, type the command: node server.js 
+ You need to have the mysql framework installed in order for the game to run as we are using mysql for our databse
+ 3) Once ther localserver has started, go to your preffered browser and go to the link localhost:3000 
+ 4) Enjoy :)
