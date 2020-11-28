@@ -95,7 +95,7 @@ function drawMap() {
         }
 
         document.getElementById('map').innerHTML += "<br>"; //Break statement so every nested array is 
-        // is printed out seperately 
+        //is printed out seperately 
 
     }
 }
