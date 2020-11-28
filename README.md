@@ -19,9 +19,9 @@ __Game plan (inspired by OG Pac-Man):__
 __Local server verion__ : 
 * The localserver version of the game can be found at our old repository: https://github.com/WAP-5/cw
 
-__Trailer__: link https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
+__Link for the game:__ https://pac-race.herokuapp.com
 
-__THE LINK TO THE GAME IN ABOUT SECTION OF THIS REPO__
+__Trailer__: https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
 
 BUGS: game shows Application Error; please contact us to play the game! 
 
