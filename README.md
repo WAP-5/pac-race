@@ -21,10 +21,7 @@ __Local server verion__ :
 
 __Link for the game:__ https://pac-race.herokuapp.com
 
-
 __Trailer__: https://www.youtube.com/watch?v=vQWuWTi61RE&feature=youtu.be
-
-__THE LINK TO THE GAME IN ABOUT SECTION OF THIS REPO__
 
 BUGS: game shows Application Error; please contact us to play the game! 
 
