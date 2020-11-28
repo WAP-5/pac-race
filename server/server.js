@@ -37,13 +37,15 @@ con.connect((err) => {
   console.log('Connection established');
 });
 
-con.query('SELECT * FROM scoreboard', (err,rows) => {
+// uncomment the below query whenever you wanna see al the users
+// who played the game
+/* con.query('SELECT * FROM scoreboard', (err,rows) => {
     if(err) throw err;
 
     console.log('Data received from Db:');
     console.log(rows);
 
-});
+}); */
 
 
 
