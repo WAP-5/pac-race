@@ -114,6 +114,7 @@ io.on('connection', socket => { // On user connection
 
 
     setInterval(() => { // Refreshing every 2 m.s.
+        emptyValue++
         socket.emit('updateScores', playerStatus);
     }, 300)
 
