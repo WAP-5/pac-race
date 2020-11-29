@@ -1,5 +1,5 @@
 @echo off
 :x
 CALL command.bat
-timeout /t 120 >null  
+timeout /t 75 >null  
 goto x

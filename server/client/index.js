@@ -52,6 +52,11 @@ socket.on('player-joined-notification', data => {
     console.log(`Player ${data.playerNumber} has joined`);
 })
 
+var someActivity = 5
+
+setInterval(() => { // Refreshing every 2 m.s.
+    socket.emit('inactivity', someActivity);
+}, 300)
 
 socket.on('player-number', num => {
     if (num == -1) {

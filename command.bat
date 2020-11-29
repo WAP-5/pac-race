@@ -1,1 +1,4 @@
-heroku restart
+git commit --allow-empty -m "Trigger Build"
+git push heroku master
+
+
